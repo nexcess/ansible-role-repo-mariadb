@@ -1,0 +1,4 @@
+---
+
+mariadb_version: 10.2
+mariadb_repo_gpg_key_url: "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB"
