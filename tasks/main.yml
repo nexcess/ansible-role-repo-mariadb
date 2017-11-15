@@ -8,9 +8,10 @@
   register: mariadb_repo_file_result
 
 - name: Install the MariaDB Repo
-  package:
-    name: "{{ mariadb_repo_url }}"
-    state: present
+  yum_repository:
+    name: MariaDB
+    description: MariaDB Repo
+    baseurl: "{{ mariadb_repo_url }}"
   register: result
   until: '"failed" not in result'
   retries: 5
@@ -21,4 +22,3 @@
   rpm_key:
     key: "{{ mariadb_repo_gpg_key_url }}"
     state: present
-  when: not mariadb_repo_file_result.stat.exists
